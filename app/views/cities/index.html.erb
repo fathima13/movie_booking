@@ -1,0 +1,13 @@
+<h1>Cities#index</h1>
+<table>
+<% @cities.each do |city| %>
+<tr><td>City Name</td>
+	<td><%=city.name%></td>
+	<td><%= link_to 'edit', edit_city_url(id: city.id) %></td>
+	<td><%= link_to 'show',city_url(id: city.id)%></td>
+	<td><%= link_to 'delete',city_url(id: city.id), method:'delete'%></td>
+</tr>
+<%end%>	
+</table>
+<%= link_to 'new',new_city_url %>
+

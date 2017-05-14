@@ -1,0 +1,13 @@
+<h1>Users#index</h1>
+<table>
+	<% @users.each do |user|%>
+	<tr><td>Name</td>
+		<td><%= user.name %></td>
+		<td><%= link_to 'edit', edit_user_url(id: user.id)%>
+		<td><%= link_to 'show', user_url(id: user.id)%>
+		<td><%= link_to 'delete', user_url(id: user.id), method: 'delete'%>
+	</tr>
+
+<%end%>
+</table>
+<%= link_to 'new',new_user_url %>

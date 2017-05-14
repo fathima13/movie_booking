@@ -1,0 +1,8 @@
+<h1>City</h1>
+<p><%= form_for @city do |f| %>
+	<%= f.label :name%>
+	<%= f.text_field :name %>
+	<%= f.submit 'submit'%>
+<% end%>
+</p>
+<%= link_to 'back', cities_url %>

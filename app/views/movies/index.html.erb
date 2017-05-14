@@ -1,0 +1,17 @@
+<h1>Movies#index</h1>
+<table>
+<% @movies.each do |movie| %>
+<tr>
+	<td>Name</td>
+	<td><%=movie.name%></td>
+	<td>MovieDate</td>
+	<td><%=movie.moviedate%></td>
+	<td>MovieTime</td>
+	<td><%=movie.movietime%></td>
+	<td><%= link_to 'edit',edit_movie_url(id:movie.id)%></td>
+	<td><%= link_to 'show',movie_url(id:movie.id)%></td>
+	<td><%= link_to 'delete',movie_url(id:movie.id), method: 'delete'%></td>
+</tr>
+<%end%>
+</table>
+<%= link_to 'new', new_movie_url %>

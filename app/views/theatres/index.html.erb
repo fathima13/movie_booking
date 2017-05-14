@@ -1,0 +1,15 @@
+<h1>Theatres#index</h1>
+<table>
+<% @theatres.each do |theatre|%>
+<tr><td>Theatre Name:</td>
+	<td><%=theatre.name %></td>
+	<td> City Id:</td>
+	<td><%= theatre.city_id%></td>
+	<td><%= link_to 'edit', edit_theatre_url(id: theatre.id)%></td>
+	<td><%= link_to 'show', theatre_url(id: theatre.id)%></td>
+	<td><%= link_to 'delete', theatre_url(id: theatre.id),method: 'delete'%></td>
+
+</tr>
+<%end%>
+</table>
+<%=link_to 'new', new_theatre_url%>

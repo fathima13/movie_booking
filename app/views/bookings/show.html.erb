@@ -1,0 +1,9 @@
+<h1>Booking#Show</h1>
+<p> No Of Tickets: <%=@booking.noticket%>
+	user Name : <%=@booking.user.name %>
+	Movie Name : <%=@booking.movie.name %>
+	Movie Date : <%=@booking.movie.moviedate %>
+	
+	Movie Time : <%=(@booking.movie.movietime).strftime "%H:%M:%S" %>
+
+</p>

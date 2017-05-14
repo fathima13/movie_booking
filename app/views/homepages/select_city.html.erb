@@ -1,0 +1,5 @@
+<%= form_tag '/select_city' do |f|%>
+<%= label_tag :city %>
+<%= select_tag(:city, options_from_collection_for_select(@cities, :name, :name)) %>
+<%= submit_tag 'submit' %>
+<% end -%>

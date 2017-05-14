@@ -1,0 +1,17 @@
+<h1>Bookings#index</h1>
+<table>
+<% @bookings.each do |booking|%>
+<tr><td>Number of tickets:</td>
+	<td><%=booking.noticket %></td>
+	<td> Movie Id:</td>
+	<td><%= booking.movie_id%></td>
+	<td> User Id:</td>
+	<td><%= booking.user_id%></td>
+	<td><%= link_to 'edit', edit_booking_url(id: booking.id)%></td>
+	<td><%= link_to 'show', booking_url(id: booking.id)%></td>
+	<td><%= link_to 'delete', booking_url(id: booking.id),method: 'delete'%></td>
+
+</tr>
+<%end%>
+</table>
+<%=link_to 'new', new_booking_url%>

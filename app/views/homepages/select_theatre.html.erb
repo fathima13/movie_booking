@@ -1,0 +1,5 @@
+<%= form_tag "/city/#{params[:city]}/theatres" do |f|%>
+<%= label_tag :theatre %>
+<%= select_tag(:theatre, options_from_collection_for_select(@theatres, :name, :name)) %>
+<%= submit_tag 'submit' %>
+<% end -%>

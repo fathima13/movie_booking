@@ -1,0 +1,8 @@
+<%= form_for @theatre do |f|%>
+<%= f.label :name%>
+<%= f.text_field :name%>
+<%= f.label :city_id %>
+<%= f.collection_select(:city_id, @cities, :id, :name) %>
+<%= f.submit 'submit'%>
+<%end%>
+<%= link_to 'back', theatres_url %>
