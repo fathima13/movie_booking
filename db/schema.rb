@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20170513111210) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bookings", force: :cascade do |t|
     t.integer  "movie_id"
     t.integer  "user_id"
     t.integer  "noticket"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_bookings_on_movie_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["movie_id"], name: "index_bookings_on_movie_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
   create_table "cities", force: :cascade do |t|
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20170513111210) do
     t.integer  "theatre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_movie_theatres_on_movie_id"
-    t.index ["theatre_id"], name: "index_movie_theatres_on_theatre_id"
+    t.index ["movie_id"], name: "index_movie_theatres_on_movie_id", using: :btree
+    t.index ["theatre_id"], name: "index_movie_theatres_on_theatre_id", using: :btree
   end
 
   create_table "movies", force: :cascade do |t|
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170513111210) do
     t.integer  "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_theatres_on_city_id"
+    t.index ["city_id"], name: "index_theatres_on_city_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,4 +62,9 @@ ActiveRecord::Schema.define(version: 20170513111210) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "movies"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "movie_theatres", "movies"
+  add_foreign_key "movie_theatres", "theatres"
+  add_foreign_key "theatres", "cities"
 end
