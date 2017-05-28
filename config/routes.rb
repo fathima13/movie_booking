@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	post '/city/:city/theatres' => "homepages#finalise_theatre"
 	get '/theatre/:theatre/movies' => "homepages#select_movie"
 	post '/theatre/:theatre/movies' => "homepages#finalise_movie"
-  root 'homepages#home'
+  root "homepages#select_city"
   resources :cities
   resources :users
   resources :theatres
