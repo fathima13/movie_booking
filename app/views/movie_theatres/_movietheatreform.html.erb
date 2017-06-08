@@ -1,0 +1,8 @@
+<%= form_for @movietheatre do |f|%>
+<%= f.label :movie_id %>
+<%= f.collection_select(:movie_id, @movies, :id, :name) %>
+<%= f.label :theatre_id %>
+<%= f.collection_select(:theatre_id, @theatres, :id, :name) %>
+<%= f.submit 'submit'%>
+<%end%>
+<%= link_to 'back', movie_theatres_url %>

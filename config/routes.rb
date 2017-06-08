@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  
+
+  get 'movie_theatres/index'
+
+get 'movie_theatres/new'
+
 	# get '/home' => "homepages#home"
 	get '/select_city' => "homepages#select_city"
 	post '/select_city' => "homepages#finalise_city"
@@ -12,4 +19,5 @@ Rails.application.routes.draw do
   resources :theatres
   resources :movies
   resources :bookings
+  resources :movie_theatres
 end

@@ -1,0 +1,15 @@
+<h1>MovieTheatres#index</h1>
+<table>
+<% @movietheatres.each do |movietheatre| %>
+<tr>
+	<td>Movie_id</td>
+	<td><%=movietheatre.movie_id%></td>
+	<td>Theatre_id</td>
+	<td><%=movietheatre.theatre_id%></td>
+	<td><%= link_to 'edit',edit_movie_theatre_url(id:movietheatre.id)%></td>
+<!-- 	<td><%#= link_to 'show',movie_theatre_url(id:movietheatres.id)%></td> 
+ -->	<!-- <td><%#= link_to 'delete',movie_theatre_url(id:movietheatre.id), method: 'delete'%></td> -->
+</tr>
+<%end%>
+</table>
+<%= link_to 'new', new_movie_theatre_url %>
